@@ -1,4 +1,4 @@
-public class Ninja extends GameCharacter {
+public abstract class Ninja extends GameCharacter {
     private boolean armor;
 
     public Ninja(String name, int health) {
@@ -16,7 +16,13 @@ public class Ninja extends GameCharacter {
     }
 
     public void looseHealth() {
-        this.setHealth(this.getHealth() - 1);
+
+        if (this.isArmor()){
+            this.setHealth(this.getHealth() - 1);
+        }else {
+            this.setHealth(this.getHealth() - 2);
+        }
+
 
         if (this.getHealth() == 0) {
             System.out.println(this.getName() + " just died");
@@ -37,8 +43,40 @@ public class Ninja extends GameCharacter {
     }
 
 
-    public void attack(Devil devil){
+    public abstract void attack(Devil devil);
 
-        devil.looseHealth();
+
+    public void gainArmor(){
+
+        if(this.getHealth()<=0){
+            System.out.println(this.getName()+" cannot gain armor");
+        }else {
+            if(this.isArmor()){
+                System.out.println(this.getName()+" already has an armor");
+            }else {
+                this.setArmor(true);
+                System.out.println(this.getName()+" armor gained");
+            }
+        }
+
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

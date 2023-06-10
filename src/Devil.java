@@ -15,8 +15,8 @@ public class Devil extends GameCharacter{
     }
 
 
-    public void looseHealth() {
-        this.setHealth(this.getHealth() - 1);
+    public void looseHealth(int decreaseAmount) {
+        this.setHealth(this.getHealth() - decreaseAmount);
 
         if (this.getHealth() == 0) {
             System.out.println(this.getName() + " just died");

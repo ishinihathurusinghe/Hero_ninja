@@ -3,6 +3,11 @@ public class SuperNinja extends Ninja{
         super(name, health);
     }
 
+
+    public  void attack(Devil devil){
+       devil.looseHealth(2);
+    }
+
     public void increaseHealth(){
         if(this.getHealth() == 5){
             System.out.println(this.getName()+" cant increase");
