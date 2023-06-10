@@ -35,4 +35,10 @@ public class Ninja extends GameCharacter {
             System.out.println(this.getName() + " doesn't have an armor");
         }
     }
+
+
+    public void attack(Devil devil){
+
+        devil.looseHealth();
+    }
 }
